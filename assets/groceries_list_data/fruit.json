@@ -1,0 +1,65 @@
+
+
+[
+
+  {
+    "code": "apple_1",
+    "name":"Apple",
+    "image_url":"assets/fruits/apple.png"
+  },
+
+  {
+    "code": "avocado_1",
+    "name":"Avocado",
+    "image_url":"assets/fruits/avocado.png"
+  },
+
+  {
+    "code": "banana_1",
+    "name":"Banana",
+    "image_url":"assets/fruits/banana.png"
+  },
+
+  {
+    "code": "grape_1",
+    "name":"Grape",
+    "image_url":"assets/fruits/grape.png"
+  },
+
+  {
+    "code": "guava_1",
+    "name":"Guava",
+    "image_url":"assets/fruits/guava.png"
+  },
+
+  {
+    "code": "mango_1",
+    "name":"Mango",
+    "image_url":"assets/fruits/mango.png"
+  },
+
+  {
+    "code": "orange_1",
+    "name":"Orange",
+    "image_url":"assets/fruits/orange.png"
+  },
+
+  {
+    "code": "pineapple_1",
+    "name":"Pineapple",
+    "image_url":"assets/fruits/pineapple.png"
+  },
+
+  {
+    "code": "pomegranate_1",
+    "name":"Pomegranate",
+    "image_url":"assets/fruits/pomegranate.png"
+  },
+
+  {
+    "code": "strawberry_1",
+    "name":"Strawberry",
+    "image_url":"assets/fruits/strawberry.png"
+  }
+]
+

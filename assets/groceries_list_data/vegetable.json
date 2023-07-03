@@ -1,0 +1,65 @@
+
+
+[
+
+  {
+    "code": "cabbage_1",
+    "name":"Cabbage",
+    "image_url":"assets/vegetables/cabbage.png"
+  },
+
+  {
+    "code": "broccoli_1",
+    "name":"Broccoli",
+    "image_url":"assets/vegetables/broccoli.png"
+  },
+
+  {
+    "code": "pumpkin_1",
+    "name":"Butternut Pumpkin",
+    "image_url":"assets/vegetables/butternut_pumpkins.png"
+  },
+
+  {
+    "code": "carrot_1",
+    "name":"Carrot",
+    "image_url":"assets/vegetables/carrot.png"
+  },
+
+  {
+    "code": "chili_1",
+    "name":"Chili",
+    "image_url":"assets/vegetables/chili.png"
+  },
+
+  {
+    "code": "mushroom_1",
+    "name":"Mushroom",
+    "image_url":"assets/vegetables/mushroom.png"
+  },
+
+  {
+    "code": "onion_1",
+    "name":"Onion",
+    "image_url":"assets/vegetables/onion.png"
+  },
+
+  {
+    "code": "radish_1",
+    "name":"Radish",
+    "image_url":"assets/vegetables/radish.png"
+  },
+
+  {
+    "code": "tomato_1",
+    "name":"Tomato",
+    "image_url":"assets/vegetables/tomato.png"
+  },
+
+  {
+    "code": "potato_1",
+    "name":"Potato",
+    "image_url":"assets/vegetables/potato.png"
+  }
+]
+
