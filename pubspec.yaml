@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  google_fonts: ^4.0.4
 
 dev_dependencies:
   flutter_test:
@@ -59,9 +60,32 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/groceries_list_data/vegetable.json
+    - assets/groceries_list_data/fruit.json
+    - assets/vegetables/cabbage.png
+    - assets/vegetables/broccoli.png
+    - assets/vegetables/butternut_pumpkins.png
+    - assets/vegetables/carrot.png
+    - assets/vegetables/chili.png
+    - assets/vegetables/mushroom.png
+    - assets/vegetables/onion.png
+    - assets/vegetables/radish.png
+    - assets/vegetables/tomato.png
+    - assets/vegetables/potato.png
+    - assets/fruits/apple.png
+    - assets/fruits/avocado.png
+    - assets/fruits/banana.png
+    - assets/fruits/grape.png
+    - assets/fruits/guava.png
+    - assets/fruits/mango.png
+    - assets/fruits/orange.png
+    - assets/fruits/pineapple.png
+    - assets/fruits/pomegranate.png
+    - assets/fruits/strawberry.png
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
