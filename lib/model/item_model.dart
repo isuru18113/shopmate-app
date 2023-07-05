@@ -11,4 +11,12 @@ class Item {
         itemName: parsedJson['name'],
         itemImageUrl: parsedJson['image_url']);
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'code': itemCode,
+      'name': itemName,
+      'image_url': itemImageUrl,
+    };
+  }
 }

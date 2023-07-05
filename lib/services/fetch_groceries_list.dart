@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 import '../model/item_model.dart';
 
-//Fetch Vegetable Data
+//load Vegetable Data
 Future<String> loadVegetableAsset() async {
   return await rootBundle
       .loadString('assets/groceries_list_data/vegetable.json');
@@ -19,7 +19,7 @@ Future<List<Item>> loadVegetable() async {
 }
 
 
-//Fetch Fruits Data
+//load Fruits Data
 Future<String> loadFruitAsset() async {
   return await rootBundle
       .loadString('assets/groceries_list_data/fruit.json');

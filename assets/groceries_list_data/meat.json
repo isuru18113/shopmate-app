@@ -1,0 +1,40 @@
+
+[
+
+  {
+    "code": "beef_1",
+    "name":"Beef",
+    "image_url":"assets/meats/beef_1.png"
+  },
+
+  {
+    "code": "beef_2",
+    "name":"Beef Parts",
+    "image_url":"assets/meats/beef_2.png"
+  },
+  {
+
+    "code": "chicken_1",
+    "name":"Chicken Full",
+    "image_url":"assets/meats/chicken_full.png"
+  },
+
+  {
+
+    "code": "chicken_2",
+    "name":"Chicken Breast",
+    "image_url":"assets/meats/chicken_breast.png"
+  },
+
+  {
+    "code": "pork_1",
+    "name":"Pork",
+    "image_url":"assets/meats/pork_1.png"
+  },
+
+  {
+    "code": "pork_2",
+    "name":"Pork Neck",
+    "image_url":"assets/meats/pork_2.png"
+  }
+]
