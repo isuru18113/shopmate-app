@@ -1,17 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../model/item_model.dart';
 
-class SelectedItems extends ChangeNotifier {
-  static final SelectedItems selectedInstance = SelectedItems._internal();
+class HandleSelectedItem extends ChangeNotifier {
+  static final HandleSelectedItem selectedInstance = HandleSelectedItem._internal();
 
   List<Item> selectedItems = [];
 
-  factory SelectedItems() {
+  factory HandleSelectedItem() {
     return selectedInstance;
   }
 
-  SelectedItems._internal();
+  HandleSelectedItem._internal();
 
   //add new items to selectedListItem
   void addItem(Item item) {
@@ -31,7 +31,7 @@ class SelectedItems extends ChangeNotifier {
         selectedItems.any((item) => item.itemCode == userClickedItems.itemCode);
 
     if (isAlreadyAdded) {
-      SelectedItems().removeItemWhere(userClickedItems.itemCode.toString());
+      removeItemWhere(userClickedItems.itemCode.toString());
     } else {
       addItem(userClickedItems);
     }

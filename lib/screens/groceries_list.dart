@@ -8,7 +8,7 @@ import 'package:shopmate/services/fetch_groceries_list.dart';
 
 import '../model/item_model.dart';
 
-import '../utils/selected_groceries_list.dart';
+import '../utils/handle_selected_item_helper.dart';
 import '../widgets/item_widget.dart';
 
 class GroceriesList extends StatefulWidget {
@@ -23,10 +23,27 @@ class GroceriesList extends StatefulWidget {
 class _GroceriesListState extends State<GroceriesList> {
 
   //Selected item list
-  List<Item>? userSelectItemList = SelectedItems().selectedItems;
+  List<Item>? userSelectItemList = HandleSelectedItem().selectedItems;
 
   //ScrollController for bottomList
   final ScrollController scrollControllerBottomList = ScrollController();
+
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    userSelectItemList?.clear();
+
+  }
+
+
+  @override
+  void dispose() {
+    super.dispose();
+    scrollControllerBottomList.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +76,10 @@ class _GroceriesListState extends State<GroceriesList> {
           children: [
             groceryTabView(loadVegetable()),
             groceryTabView(loadFruit()),
-            groceryTabView(loadVegetable()),
-            groceryTabView(loadVegetable()),
-            groceryTabView(loadVegetable()),
-            groceryTabView(loadVegetable()),
+            groceryTabView(loadMeat()),
+            groceryTabView(loadSeafood()),
+            groceryTabView(loadDairy()),
+            groceryTabView(loadIngredient()),
           ],
         ),
       ),
@@ -112,7 +129,7 @@ class _GroceriesListState extends State<GroceriesList> {
                     child: InkWell(
                         onTap: () {
                           setState(() {
-                            SelectedItems()
+                            HandleSelectedItem()
                                 .handleItemSelected(snapshot.data![index]);
                             bottomListScrollController();
                           });
@@ -147,7 +164,7 @@ class _GroceriesListState extends State<GroceriesList> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
-              child: Consumer<SelectedItems>(builder: (context, list, child) {
+              child: Consumer<HandleSelectedItem>(builder: (context, list, child) {
                 return GridView.builder(
                   controller: scrollControllerBottomList,
                   shrinkWrap: true,

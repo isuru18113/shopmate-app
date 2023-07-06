@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../model/item_model.dart';
+import '../widgets/divider_widget.dart';
 
 class GroceriesCheckList extends StatefulWidget {
   final Map<String, dynamic> selectedItems;
@@ -62,14 +63,15 @@ class _GroceriesCheckListState extends State<GroceriesCheckList> {
         future: createAList(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+                child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Text('No data available');
           }
-          return ListView.builder(
-              itemCount: snapshot.data?.length,
+          return ListView.separated(
+              itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return StatefulBuilder(
                   builder: (BuildContext context,
@@ -91,7 +93,9 @@ class _GroceriesCheckListState extends State<GroceriesCheckList> {
                     );
                   },
                 );
-              });
+              }, separatorBuilder: (BuildContext context, int index) {
+           return customDivider();
+          },);
         });
   }
 }

@@ -33,6 +33,7 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
 
 
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
@@ -59,6 +60,10 @@ flutter:
   assets:
     - assets/groceries_list_data/vegetable.json
     - assets/groceries_list_data/fruit.json
+    - assets/groceries_list_data/meat.json
+    - assets/groceries_list_data/seafood.json
+    - assets/groceries_list_data/dairy.json
+    - assets/groceries_list_data/ingredient.json
     - assets/app_logo/appLogo.png
     - assets/vegetables/cabbage.png
     - assets/vegetables/broccoli.png
@@ -80,4 +85,20 @@ flutter:
     - assets/fruits/pineapple.png
     - assets/fruits/pomegranate.png
     - assets/fruits/strawberry.png
+    - assets/meats/beef_1.png
+    - assets/meats/beef_2.png
+    - assets/meats/chicken_breast.png
+    - assets/meats/chicken_full.png
+    - assets/meats/pork_1.png
+    - assets/meats/pork_2.png
+    - assets/seafoods/fish_1.png
+    - assets/seafoods/shrimp_1.png
+    - assets/dairies/cheese.png
+    - assets/dairies/egg.png
+    - assets/dairies/milk_packet.png
+    - assets/dairies/yogurt.png
+    - assets/ingredients/chili.png
+    - assets/ingredients/cumin.png
+    - assets/ingredients/pepper.png
+    - assets/ingredients/salt.png
 

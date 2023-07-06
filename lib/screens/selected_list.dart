@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../model/item_model.dart';
 import '../services/add_list_to_database.dart';
-import '../utils/selected_groceries_list.dart';
+import '../utils/handle_selected_item_helper.dart';
+import '../widgets/divider_widget.dart';
 import 'home.dart';
 
 class SelectedList extends StatefulWidget {
@@ -19,7 +20,8 @@ class SelectedList extends StatefulWidget {
 
 class _SelectedListState extends State<SelectedList> {
   // Access the selectedItems list
-  List<Item> userSelectedItemList = SelectedItems().selectedItems;
+  List<Item> userSelectedItemList = HandleSelectedItem().selectedItems;
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +39,13 @@ class _SelectedListState extends State<SelectedList> {
         Visibility(
           visible: userSelectedItemList.isNotEmpty,
           child: IconButton(
+
+            //send to home once data uploaded
               onPressed: () {
-                createMap().then((value) => {
+                createMap(userSelectedItemList).then((value) => {
                       addListToDatabase(value).whenComplete(() {
+
+                        userSelectedItemList.clear();
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => const Home()),
@@ -56,7 +62,7 @@ class _SelectedListState extends State<SelectedList> {
 
   Widget selectedListView() {
     return userSelectedItemList.isNotEmpty
-        ? ListView.builder(
+        ? ListView.separated(
             itemCount: userSelectedItemList.length,
             itemBuilder: (context, index) {
               final item = userSelectedItemList[index].itemCode as String;
@@ -65,7 +71,7 @@ class _SelectedListState extends State<SelectedList> {
                 direction: DismissDirection.endToStart,
                 onDismissed: (direction) {
                   setState(() {
-                    SelectedItems().removeItemWhere(item);
+                    HandleSelectedItem().removeItemWhere(item);
                   });
                 },
                 background: Container(
@@ -90,7 +96,9 @@ class _SelectedListState extends State<SelectedList> {
                   title: Text(userSelectedItemList[index].itemName.toString()),
                 ),
               );
-            })
+            }, separatorBuilder: (BuildContext context, int index) {
+                return customDivider();
+    },)
         : Center(
             child: OutlinedButton(
                 onPressed: () {

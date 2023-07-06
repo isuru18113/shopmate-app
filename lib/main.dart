@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shopmate/screens/home.dart';
 
-import 'package:shopmate/utils/selected_groceries_list.dart';
+import 'package:shopmate/utils/handle_selected_item_helper.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => SelectedItems(),
+      create: (context) => HandleSelectedItem(),
       child: const MyApp(),
     ),
   );

@@ -3,17 +3,19 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import '../model/item_model.dart';
-import '../utils/selected_groceries_list.dart';
+import '../utils/handle_selected_item_helper.dart';
 
 // Access the selectedItems list
-List<Item> userSelectedItemList = SelectedItems().selectedItems;
+List<Item> userSelectedItemList = HandleSelectedItem().selectedItems;
 
 //get data from userSelectedItem list and create a map
-Future<Map<String, dynamic>> createMap() async {
+Future<Map<String, dynamic>> createMap(List<Item> userSelectedItemList) async {
   Map<String, dynamic> jsonData = {
     "grocery_list": {
       "createdAt": DateTime.now().toString(),
-      "selected_items": {},
+      "selected_items": {
+
+      },
     }
   };
 

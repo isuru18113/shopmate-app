@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../model/grocery_list_model.dart';
 
 import '../services/get_list_from_database.dart';
+import '../widgets/divider_widget.dart';
 import 'groceries_check_list.dart';
 import 'groceries_list.dart';
 
@@ -47,7 +48,7 @@ class _HomeState extends State<Home> {
                 MaterialPageRoute(builder: (context) => const GroceriesList()),
               );
             },
-            icon: const Icon(Icons.playlist_add)),
+            icon: const Icon(Icons.create_rounded)),
       ],
     );
   }
@@ -68,7 +69,7 @@ class _HomeState extends State<Home> {
         } else if (snapshot.hasData) {
           List<GroceryList> groceryLists = snapshot.data!;
 
-          return ListView.builder(
+          return ListView.separated(
             itemCount: groceryLists.length,
             itemBuilder: (BuildContext context, int index) {
               GroceryList groceryList = groceryLists[index];
@@ -96,7 +97,9 @@ class _HomeState extends State<Home> {
                 subtitle: Text(groceryList.id.toString()),
                 trailing: const Icon(Icons.navigate_next_rounded),
               );
-            },
+            }, separatorBuilder: (BuildContext context, int index) {
+            return customDivider();
+          },
           );
         } else {
           return const Center(

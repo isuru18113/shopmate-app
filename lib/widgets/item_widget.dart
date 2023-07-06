@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shopmate/model/item_model.dart';
+import '../utils/handle_selected_item_helper.dart';
 import '../utils/selected_items_color.dart';
+
+// Access the selectedItems list
+List<Item> selectedItems = HandleSelectedItem().selectedItems;
 
 //Grocery item view
 Widget selectedBottomGrid(List<Item> selectedItems, int index) {
@@ -28,7 +32,10 @@ Widget itemGrid(AsyncSnapshot<List<Item>> snapshot, int index) {
   return GridTile(
     header: Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Image.asset(snapshot.data![index].itemImageUrl!),
+      child: Image.asset(
+          snapshot.data![index].itemImageUrl!,
+      width: 100,
+      height: 100,),
     ),
     footer: Center(
         child: Text(
@@ -37,7 +44,7 @@ Widget itemGrid(AsyncSnapshot<List<Item>> snapshot, int index) {
     )),
     child: Container(
       decoration: BoxDecoration(
-        color: getItemColor(item),
+        color: getItemColor(item, selectedItems),
         border: Border.all(
           width: 2,
           color: Colors.green,
