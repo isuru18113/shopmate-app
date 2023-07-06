@@ -23,11 +23,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          useMaterial3: true,
-          tabBarTheme: const TabBarTheme(
-              labelStyle: TextStyle(fontWeight: FontWeight.w600),
-              labelColor: Colors.green)),
+        useMaterial3: true,
+
+          colorScheme: ColorScheme(
+
+            brightness: Brightness.light,
+            primary: Colors.green,
+            onPrimary: Colors.white,
+            secondary: Colors.green.shade100,
+            onSecondary: Colors.black,
+            error: Colors.red,
+            onError: Colors.white,
+            background: Colors.white,
+            onBackground: Colors.black,
+            surface: Colors.white,
+            onSurface: Colors.black,
+          ),
+         ),
       home: const MyHomePage(),
     );
   }
@@ -65,6 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
               "ShopMate",
               style: GoogleFonts.patuaOne(fontSize: 50),
             ),
+
+            Text("Shop smarter, faster, and never forget a thing!"),
 
             Padding(
               padding: const EdgeInsets.only(top: 50),

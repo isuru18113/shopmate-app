@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
           return Center(
             child: Text('Error: ${snapshot.error}'),
           );
-        } else if (snapshot.hasData) {
+        }else if (snapshot.hasData) {
           List<GroceryList> groceryLists = snapshot.data!;
 
           return ListView.separated(
@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
               GroceryList groceryList = groceryLists[index];
 
               return ListTile(
-                tileColor: Colors.green.shade50,
+                tileColor: Theme.of(context).colorScheme.secondary,
                 onTap: () {
                   Map<String, dynamic> selectedItems =
                       groceryList.selectedItems;

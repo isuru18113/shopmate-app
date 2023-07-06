@@ -1,0 +1,24 @@
+
+[
+
+  {
+    "code": "chili_2",
+    "name":"Chill",
+    "image_url":"assets/ingredients/chili.png"
+  },
+  {
+    "code": "cumin_1",
+    "name":"Cumin",
+    "image_url":"assets/ingredients/cumin.png"
+  },
+  {
+    "code": "pepper_1",
+    "name":"Pepper",
+    "image_url":"assets/ingredients/pepper.png"
+  },
+  {
+    "code": "salt_1",
+    "name":"Salt",
+    "image_url":"assets/ingredients/salt.png"
+  }
+]

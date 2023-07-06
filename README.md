@@ -27,7 +27,7 @@ In the ShopMate application, the architecture incorporates different types of fi
 
 - Model files: Model files represent the data structures.
 
--  Screens files: Screen files correspond to the different screens or UI views in the application.
+- Screens files: Screen files correspond to the different screens or UI views in the application.
 
 - Service files: Service files handle the communication and interaction with external and internal data sources, such as database and asset files.
 

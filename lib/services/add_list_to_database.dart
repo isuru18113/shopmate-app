@@ -27,7 +27,7 @@ Future<Map<String, dynamic>> createMap(List<Item> userSelectedItemList) async {
 }
 
 //Add data to realtime database
-Future<void> addListToDatabase(Map<String, dynamic> jsonData) async {
+Future<http.Response> addListToDatabase(Map<String, dynamic> jsonData) async {
   const url =
       'https://shopmate-19b1a-default-rtdb.europe-west1.firebasedatabase.app/all_grocery_list.json';
   final data = jsonData;
@@ -38,6 +38,8 @@ Future<void> addListToDatabase(Map<String, dynamic> jsonData) async {
     body: jsonEncode(data),
   );
 
+
+
   if (response.statusCode == 200) {
     if (kDebugMode) {
       print('Document added successfully');
@@ -47,4 +49,5 @@ Future<void> addListToDatabase(Map<String, dynamic> jsonData) async {
       print('Failed to add document. Error: ${response.statusCode}');
     }
   }
+  return response;
 }

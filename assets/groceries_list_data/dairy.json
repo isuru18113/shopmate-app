@@ -1,0 +1,24 @@
+
+[
+
+  {
+    "code": "cheese_1",
+    "name":"Cheese",
+    "image_url":"assets/dairies/cheese.png"
+  },
+  {
+    "code": "egg_1",
+    "name":"Egg",
+    "image_url":"assets/dairies/egg.png"
+  },
+  {
+    "code": "milk_packet_1",
+    "name":"Milk Packet",
+    "image_url":"assets/dairies/milk_packet.png"
+  },
+  {
+    "code": "yogurt_1",
+    "name":"Yogurt",
+    "image_url":"assets/dairies/yogurt.png"
+  }
+]

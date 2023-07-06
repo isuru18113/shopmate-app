@@ -1,0 +1,17 @@
+
+
+[
+
+  {
+    "code": "fish_1",
+    "name":"Fish",
+    "image_url":"assets/seafoods/fish_1.png"
+  },
+  {
+    "code": "shrimp_1",
+    "name":"Shrimp",
+    "image_url":"assets/seafoods/shrimp_1.png"
+  }
+
+]
+
