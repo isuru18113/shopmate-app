@@ -1,16 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopmate/services/fetch_groceries_list.dart';
-
-
 import '../model/item_model.dart';
-
 import '../routes/routes.dart';
 import '../utils/handle_selected_item_helper.dart';
 import '../widgets/item_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class GroceriesList extends StatefulWidget {
   const GroceriesList({Key? key}) : super(key: key);
 
@@ -21,23 +18,17 @@ class GroceriesList extends StatefulWidget {
 }
 
 class _GroceriesListState extends State<GroceriesList> {
-
   //Selected item list
   List<Item>? userSelectItemList = HandleSelectedItem().selectedItems;
 
   //ScrollController for bottomList
   final ScrollController scrollControllerBottomList = ScrollController();
 
-
-
-
   @override
   void initState() {
     super.initState();
     userSelectItemList?.clear();
-
   }
-
 
   @override
   void dispose() {
@@ -55,7 +46,7 @@ class _GroceriesListState extends State<GroceriesList> {
 
   AppBar groceriesListAppBar() {
     return AppBar(
-      title:  Text(
+      title: Text(
         AppLocalizations.of(context)!.createAListTitle,
       ),
       bottom: TabBar(
@@ -88,30 +79,18 @@ class _GroceriesListState extends State<GroceriesList> {
   //Tab Names
   List<Widget> tabNames() {
     return [
-       Tab(
-          child: Text("🥕 ${AppLocalizations.of(context)!.vegetable}")
-      ),
-       Tab(
-          child: Text("🍎 ${AppLocalizations.of(context)!.fruit}")
-      ),
-       Tab(
-           child: Text("🥩 ${AppLocalizations.of(context)!.meat}")
-      ),
-       Tab(
-           child: Text("🍤 ${AppLocalizations.of(context)!.seafood}")
-      ),
-       Tab(
-           child: Text("🧀 ${AppLocalizations.of(context)!.dairy}")
-      ),
-       Tab(
-           child: Text("🧂 ${AppLocalizations.of(context)!.ingredient}")
-      ),
+      Tab(child: Text("🥕 ${AppLocalizations.of(context)!.vegetable}")),
+      Tab(child: Text("🍎 ${AppLocalizations.of(context)!.fruit}")),
+      Tab(child: Text("🥩 ${AppLocalizations.of(context)!.meat}")),
+      Tab(child: Text("🍤 ${AppLocalizations.of(context)!.seafood}")),
+      Tab(child: Text("🧀 ${AppLocalizations.of(context)!.dairy}")),
+      Tab(child: Text("🧂 ${AppLocalizations.of(context)!.ingredient}")),
     ];
   }
 
   // Tab View
   Widget groceryTabView(Future<List<Item>> loadItemList) {
-    return  FutureBuilder<List<Item>>(
+    return FutureBuilder<List<Item>>(
       future: loadItemList,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
@@ -123,12 +102,10 @@ class _GroceriesListState extends State<GroceriesList> {
                 crossAxisSpacing: 2,
               ),
               itemBuilder: (context, index) {
-
                 return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                         onTap: () {
-
                           setState(() {
                             HandleSelectedItem()
                                 .handleItemSelected(snapshot.data![index]);
@@ -136,7 +113,6 @@ class _GroceriesListState extends State<GroceriesList> {
                           });
                         },
                         child: itemGrid(snapshot, index, context)));
-
               });
         } else if (snapshot.hasError) {
           return Text("${snapshot.error}");
@@ -155,7 +131,6 @@ class _GroceriesListState extends State<GroceriesList> {
     );
   }
 
-
 //Selected Item list bottom List
   Widget selectedItemsBottomListView() {
     return Container(
@@ -166,7 +141,8 @@ class _GroceriesListState extends State<GroceriesList> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
-              child: Consumer<HandleSelectedItem>(builder: (context, list, child) {
+              child:
+                  Consumer<HandleSelectedItem>(builder: (context, list, child) {
                 return GridView.builder(
                   controller: scrollControllerBottomList,
                   shrinkWrap: true,
@@ -179,30 +155,25 @@ class _GroceriesListState extends State<GroceriesList> {
                     mainAxisSpacing: 2,
                   ),
                   itemBuilder: (BuildContext context, int index) {
-                    return selectedBottomGrid(list.selectedItems, index, context);
+                    return selectedBottomGrid(
+                        list.selectedItems, index, context);
                   },
                 );
               }),
             ),
-
             Visibility(
               visible: userSelectItemList!.isNotEmpty,
               child: IconButton(
                   onPressed: () {
-
                     //Navigate to selected item list screen
-                    Navigator.pushNamed(context, selectedListRoute).whenComplete(() {
+                    Navigator.pushNamed(context, selectedListRoute)
+                        .whenComplete(() {
                       setState(() {
-
                         //refresh previous page
                         groceriesTabs();
-
                       });
-                    } );
-
-
+                    });
                   },
-
                   icon: const Icon(Icons.navigate_next_rounded)),
             )
           ],

@@ -1,18 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-
 import '../model/item_model.dart';
-import '../utils/handle_selected_item_helper.dart';
 
 //get data from userSelectedItem list and create a map
 Future<Map<String, dynamic>> createMap(List<Item> userSelectedItemList) async {
   Map<String, dynamic> jsonData = {
     "grocery_list": {
       "createdAt": DateTime.now().toString(),
-      "selected_items": {
-
-      },
+      "selected_items": {},
     }
   };
 
@@ -34,8 +30,6 @@ Future<http.Response> addListToDatabase(Map<String, dynamic> jsonData) async {
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode(data),
   );
-
-
 
   if (response.statusCode == 200) {
     if (kDebugMode) {

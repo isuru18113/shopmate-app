@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
-
 import '../model/item_model.dart';
 
 //load Vegetable Data
@@ -11,22 +9,18 @@ Future<String> loadVegetableAsset() async {
 }
 
 Future<List<Item>> loadVegetable() async {
-
   String jsonString = await loadVegetableAsset();
   List<dynamic> jsonResponse = json.decode(jsonString);
   var list = jsonResponse.map((item) => Item.fromJson(item)).toList();
   return list;
 }
 
-
 //load Fruits Data
 Future<String> loadFruitAsset() async {
-  return await rootBundle
-      .loadString('assets/groceries_list_data/fruit.json');
+  return await rootBundle.loadString('assets/groceries_list_data/fruit.json');
 }
 
 Future<List<Item>> loadFruit() async {
-
   String jsonString = await loadFruitAsset();
   List<dynamic> jsonResponse = json.decode(jsonString);
   var list = jsonResponse.map((item) => Item.fromJson(item)).toList();
@@ -35,12 +29,10 @@ Future<List<Item>> loadFruit() async {
 
 //load meats Data
 Future<String> loadMeatAsset() async {
-  return await rootBundle
-      .loadString('assets/groceries_list_data/meat.json');
+  return await rootBundle.loadString('assets/groceries_list_data/meat.json');
 }
 
 Future<List<Item>> loadMeat() async {
-
   String jsonString = await loadMeatAsset();
   List<dynamic> jsonResponse = json.decode(jsonString);
   var list = jsonResponse.map((item) => Item.fromJson(item)).toList();
@@ -49,12 +41,10 @@ Future<List<Item>> loadMeat() async {
 
 //load seafoods Data
 Future<String> loadSeafoodAsset() async {
-  return await rootBundle
-      .loadString('assets/groceries_list_data/seafood.json');
+  return await rootBundle.loadString('assets/groceries_list_data/seafood.json');
 }
 
 Future<List<Item>> loadSeafood() async {
-
   String jsonString = await loadSeafoodAsset();
   List<dynamic> jsonResponse = json.decode(jsonString);
   var list = jsonResponse.map((item) => Item.fromJson(item)).toList();
@@ -63,12 +53,10 @@ Future<List<Item>> loadSeafood() async {
 
 //load dairy Data
 Future<String> loadDairyAsset() async {
-  return await rootBundle
-      .loadString('assets/groceries_list_data/dairy.json');
+  return await rootBundle.loadString('assets/groceries_list_data/dairy.json');
 }
 
 Future<List<Item>> loadDairy() async {
-
   String jsonString = await loadDairyAsset();
   List<dynamic> jsonResponse = json.decode(jsonString);
   var list = jsonResponse.map((item) => Item.fromJson(item)).toList();
@@ -82,7 +70,6 @@ Future<String> loadIngredientAsset() async {
 }
 
 Future<List<Item>> loadIngredient() async {
-
   String jsonString = await loadIngredientAsset();
   List<dynamic> jsonResponse = json.decode(jsonString);
   var list = jsonResponse.map((item) => Item.fromJson(item)).toList();

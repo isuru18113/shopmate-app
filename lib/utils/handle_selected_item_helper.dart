@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../model/item_model.dart';
 
 class HandleSelectedItem extends ChangeNotifier {

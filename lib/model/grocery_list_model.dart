@@ -3,5 +3,6 @@ class GroceryList {
   final DateTime createdAt;
   final Map<String, dynamic> selectedItems;
 
-  GroceryList({required this.id, required this.createdAt, required this.selectedItems});
+  GroceryList(
+      {required this.id, required this.createdAt, required this.selectedItems});
 }

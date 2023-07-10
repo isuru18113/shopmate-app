@@ -1,13 +1,8 @@
-
 import 'package:flutter/material.dart';
 
-
-Widget customDivider(){
-
+Widget customDivider() {
   return const Divider(
     height: 0,
     thickness: 0.5,
-
   );
 }
-

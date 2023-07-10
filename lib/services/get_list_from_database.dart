@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-
 import '../model/grocery_list_model.dart';
 
 //Read data from database
@@ -24,8 +22,6 @@ Future<List<GroceryList>> getGroceryLists() async {
     });
 
     tempList.sort((a, b) => b.createdAt.compareTo(a.createdAt));
-
-
 
     return tempList;
   } else {

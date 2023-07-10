@@ -9,18 +9,15 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SelectedList extends StatefulWidget {
   const SelectedList({Key? key}) : super(key: key);
 
-
   @override
   State<SelectedList> createState() {
     return _SelectedListState();
   }
-
 }
 
 class _SelectedListState extends State<SelectedList> {
   // Access the selectedItems list
   List<Item> userSelectedItemList = HandleSelectedItem().selectedItems;
-
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +29,16 @@ class _SelectedListState extends State<SelectedList> {
 
   AppBar selectedItemAppBar() {
     return AppBar(
-
-      title:  Text(AppLocalizations.of(context)!.selected_list),
+      title: Text(AppLocalizations.of(context)!.selected_list),
       actions: [
         Visibility(
           visible: userSelectedItemList.isNotEmpty,
           child: IconButton(
 
-            //send to home screen once data uploaded
+              //send to home screen once data uploaded
               onPressed: () {
                 createMap(userSelectedItemList).then((value) => {
                       addListToDatabase(value).whenComplete(() {
-
                         //Clear the remaining list
                         userSelectedItemList.clear();
 
@@ -51,7 +46,7 @@ class _SelectedListState extends State<SelectedList> {
                         Navigator.pushNamedAndRemoveUntil(
                           context,
                           homeRoute,
-                              (route) => false,
+                          (route) => false,
                         );
                       }),
                     });
@@ -100,15 +95,17 @@ class _SelectedListState extends State<SelectedList> {
                   title: Text(userSelectedItemList[index].itemName.toString()),
                 ),
               );
-            }, separatorBuilder: (BuildContext context, int index) {
-                return customDivider();
-    },)
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return customDivider();
+            },
+          )
         : Center(
             child: OutlinedButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child:  Text(AppLocalizations.of(context)!.createAListTitle)),
+                child: Text(AppLocalizations.of(context)!.createAListTitle)),
           );
   }
 }
