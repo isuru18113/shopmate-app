@@ -40,7 +40,6 @@ In the ShopMate application, the architecture incorporates different types of fi
 - l10n file: l10n file represent the language files for the app.
 
 ## Other notes
-
 I downloaded the app logo for ShopMate from the Flaticon website. The logo can be found at the following URL [flaticon](https://www.flaticon.com/free-icon/shopping-bag_3514242?term=grocery&page=1&position=5&origin=search&related_id=3514242)
 
 Furthermore, I downloaded grocery images for the application from the website [FreePNGImg](https://freepngimg.com)
