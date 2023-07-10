@@ -1,0 +1,16 @@
+{
+  "getStarted": "Get Started",
+  "createAListTitle": "Create a list",
+  "settings": "Settings",
+  "change_language": "Change Language",
+  "app_theme": "App Theme",
+  "grocery_list": "Grocery List",
+  "selected_list": "Selected List",
+  "check_list": "Check List",
+  "vegetable": "Vegetable",
+  "fruit": "Fruit",
+  "meat": "Meat",
+  "seafood": "Seafood",
+  "dairy": "Dairy",
+  "ingredient": "Ingredient"
+}

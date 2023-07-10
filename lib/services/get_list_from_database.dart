@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../model/grocery_list_model.dart';
 
 //Read data from database
-Future<List<GroceryList>> fetchGroceryLists() async {
+Future<List<GroceryList>> getGroceryLists() async {
   const url =
       'https://shopmate-19b1a-default-rtdb.europe-west1.firebasedatabase.app/all_grocery_list.json';
   final response = await http.get(Uri.parse(url));
@@ -24,6 +24,8 @@ Future<List<GroceryList>> fetchGroceryLists() async {
     });
 
     tempList.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+
+
 
     return tempList;
   } else {

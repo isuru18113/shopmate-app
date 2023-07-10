@@ -1,0 +1,16 @@
+{
+  "getStarted": "Sākt",
+  "createAListTitle": "Izveidot sarakstu",
+  "settings": "Iestatījumi",
+  "change_language": "Mainīt valodu",
+  "app_theme": "Lietotnes tēma",
+  "grocery_list": "Iepirkumu saraksts",
+  "selected_list": "Izvēlētais saraksts",
+  "check_list": "Pārbaudes saraksts",
+  "vegetable": "Dārzeņi",
+  "fruit": "Augļi",
+  "meat": "Gaļa",
+  "seafood": "Jūras veltes",
+  "dairy": "Piena produkti",
+  "ingredient": "Sastāvdaļa"
+}

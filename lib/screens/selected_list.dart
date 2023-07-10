@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
-
 import '../model/item_model.dart';
+import '../routes/routes.dart';
 import '../services/add_list_to_database.dart';
 import '../utils/handle_selected_item_helper.dart';
 import '../widgets/divider_widget.dart';
-import 'home.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SelectedList extends StatefulWidget {
   const SelectedList({Key? key}) : super(key: key);
@@ -33,23 +32,26 @@ class _SelectedListState extends State<SelectedList> {
 
   AppBar selectedItemAppBar() {
     return AppBar(
-      centerTitle: true,
-      title: const Text("Selected List"),
+
+      title:  Text(AppLocalizations.of(context)!.selected_list),
       actions: [
         Visibility(
           visible: userSelectedItemList.isNotEmpty,
           child: IconButton(
 
-            //send to home once data uploaded
+            //send to home screen once data uploaded
               onPressed: () {
                 createMap(userSelectedItemList).then((value) => {
                       addListToDatabase(value).whenComplete(() {
 
+                        //Clear the remaining list
                         userSelectedItemList.clear();
-                        Navigator.pushAndRemoveUntil(
+
+                        //Navigate to home screen
+                        Navigator.pushNamedAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => const Home()),
-                          (route) => false,
+                          homeRoute,
+                              (route) => false,
                         );
                       }),
                     });
@@ -67,6 +69,8 @@ class _SelectedListState extends State<SelectedList> {
             itemBuilder: (context, index) {
               final item = userSelectedItemList[index].itemCode as String;
               return Dismissible(
+                resizeDuration: const Duration(milliseconds: 1),
+                movementDuration: const Duration(milliseconds: 1),
                 key: Key(item),
                 direction: DismissDirection.endToStart,
                 onDismissed: (direction) {
@@ -75,7 +79,7 @@ class _SelectedListState extends State<SelectedList> {
                   });
                 },
                 background: Container(
-                  color: Colors.red.shade300,
+                  color: Theme.of(context).colorScheme.errorContainer,
                   child: const Align(
                     alignment: Alignment.centerRight,
                     child: Padding(
@@ -87,7 +91,7 @@ class _SelectedListState extends State<SelectedList> {
                 child: ListTile(
                   titleAlignment: ListTileTitleAlignment.center,
                   contentPadding: const EdgeInsets.symmetric(vertical: 10),
-                  tileColor: Colors.green.shade50,
+                  tileColor: Theme.of(context).colorScheme.secondaryContainer,
                   leading: SizedBox(
                       width: 60,
                       height: 60,
@@ -104,7 +108,7 @@ class _SelectedListState extends State<SelectedList> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: const Text("Go to item menu")),
+                child:  Text(AppLocalizations.of(context)!.createAListTitle)),
           );
   }
 }

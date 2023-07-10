@@ -7,7 +7,8 @@ import '../utils/selected_items_color.dart';
 List<Item> selectedItems = HandleSelectedItem().selectedItems;
 
 //Grocery item view
-Widget selectedBottomGrid(List<Item> selectedItems, int index) {
+Widget selectedBottomGrid(
+    List<Item> selectedItems, int index, BuildContext context) {
   return GridTile(
     header: Center(
         child: SizedBox(
@@ -17,25 +18,26 @@ Widget selectedBottomGrid(List<Item> selectedItems, int index) {
               selectedItems[index].itemImageUrl!,
               scale: 1,
             ))),
-    child: Container(
-      color: Colors.green.shade50,
+    child: Container(color: Theme.of(context).colorScheme.secondaryContainer
 
-      // color: Colors.green,
-    ),
+        // color: Colors.green,
+        ),
   );
 }
 
 //Grocery item view
-Widget itemGrid(AsyncSnapshot<List<Item>> snapshot, int index) {
+Widget itemGrid(
+    AsyncSnapshot<List<Item>> snapshot, int index, BuildContext context) {
   Item item = snapshot.data![index];
 
   return GridTile(
     header: Padding(
       padding: const EdgeInsets.all(8.0),
       child: Image.asset(
-          snapshot.data![index].itemImageUrl!,
-      width: 100,
-      height: 100,),
+        snapshot.data![index].itemImageUrl!,
+        width: 100,
+        height: 100,
+      ),
     ),
     footer: Center(
         child: Text(
@@ -44,10 +46,10 @@ Widget itemGrid(AsyncSnapshot<List<Item>> snapshot, int index) {
     )),
     child: Container(
       decoration: BoxDecoration(
-        color: getItemColor(item, selectedItems),
+        color: getItemColor(item, selectedItems, context),
         border: Border.all(
           width: 2,
-          color: Colors.green,
+          color: Theme.of(context).colorScheme.primary,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(5.0)),
         //color: Colors.green,

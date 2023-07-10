@@ -2,15 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopmate/screens/selected_list.dart';
 import 'package:shopmate/services/fetch_groceries_list.dart';
 
 
 import '../model/item_model.dart';
 
+import '../routes/routes.dart';
 import '../utils/handle_selected_item_helper.dart';
 import '../widgets/item_widget.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class GroceriesList extends StatefulWidget {
   const GroceriesList({Key? key}) : super(key: key);
 
@@ -55,9 +55,8 @@ class _GroceriesListState extends State<GroceriesList> {
 
   AppBar groceriesListAppBar() {
     return AppBar(
-      centerTitle: true,
-      title: const Text(
-        "Create A List",
+      title:  Text(
+        AppLocalizations.of(context)!.createAListTitle,
       ),
       bottom: TabBar(
         indicatorSize: TabBarIndicatorSize.tab,
@@ -89,30 +88,30 @@ class _GroceriesListState extends State<GroceriesList> {
   //Tab Names
   List<Widget> tabNames() {
     return [
-      const Tab(
-          child: Text("🥕 Vegetable")
+       Tab(
+          child: Text("🥕 ${AppLocalizations.of(context)!.vegetable}")
       ),
-      const Tab(
-          child: Text("🍎 Fruit")
+       Tab(
+          child: Text("🍎 ${AppLocalizations.of(context)!.fruit}")
       ),
-      const Tab(
-        child: Text("🥩 Meat"),
+       Tab(
+           child: Text("🥩 ${AppLocalizations.of(context)!.meat}")
       ),
-      const Tab(
-        child: Text("🍤 Seafood"),
+       Tab(
+           child: Text("🍤 ${AppLocalizations.of(context)!.seafood}")
       ),
-      const Tab(
-        child: Text("🧀 Dairy"),
+       Tab(
+           child: Text("🧀 ${AppLocalizations.of(context)!.dairy}")
       ),
-      const Tab(
-        child: Text("🧂 Ingredient"),
+       Tab(
+           child: Text("🧂 ${AppLocalizations.of(context)!.ingredient}")
       ),
     ];
   }
 
   // Tab View
   Widget groceryTabView(Future<List<Item>> loadItemList) {
-    return FutureBuilder<List<Item>>(
+    return  FutureBuilder<List<Item>>(
       future: loadItemList,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
@@ -124,17 +123,20 @@ class _GroceriesListState extends State<GroceriesList> {
                 crossAxisSpacing: 2,
               ),
               itemBuilder: (context, index) {
+
                 return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                         onTap: () {
+
                           setState(() {
                             HandleSelectedItem()
                                 .handleItemSelected(snapshot.data![index]);
                             bottomListScrollController();
                           });
                         },
-                        child: itemGrid(snapshot, index)));
+                        child: itemGrid(snapshot, index, context)));
+
               });
         } else if (snapshot.hasError) {
           return Text("${snapshot.error}");
@@ -157,7 +159,7 @@ class _GroceriesListState extends State<GroceriesList> {
 //Selected Item list bottom List
   Widget selectedItemsBottomListView() {
     return Container(
-      color: Colors.green.shade50,
+      color: Theme.of(context).colorScheme.secondaryContainer,
       child: SizedBox(
         height: 50,
         child: Row(
@@ -177,7 +179,7 @@ class _GroceriesListState extends State<GroceriesList> {
                     mainAxisSpacing: 2,
                   ),
                   itemBuilder: (BuildContext context, int index) {
-                    return selectedBottomGrid(list.selectedItems, index);
+                    return selectedBottomGrid(list.selectedItems, index, context);
                   },
                 );
               }),
@@ -187,15 +189,17 @@ class _GroceriesListState extends State<GroceriesList> {
               visible: userSelectItemList!.isNotEmpty,
               child: IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SelectedList())).then((value) {
 
-                            setState(() {
-                              groceriesTabs();
-                            });
-                    });
+                    //Navigate to selected item list screen
+                    Navigator.pushNamed(context, selectedListRoute).whenComplete(() {
+                      setState(() {
+
+                        //refresh previous page
+                        groceriesTabs();
+
+                      });
+                    } );
+
 
                   },
 

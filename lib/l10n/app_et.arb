@@ -1,0 +1,17 @@
+
+{
+"getStarted": "Alusta",
+"createAListTitle": "Loo nimekiri",
+"settings": "Seaded",
+"change_language": "Muuda keelt",
+"app_theme": "Rakenduse kujundus",
+"grocery_list": "Ostunimekiri",
+"selected_list": "Valitud nimekiri" ,
+"check_list": "Kontrollnimekiri",
+"vegetable": "Köögivili",
+"fruit": "Puuvili",
+"meat": "Liha",
+"seafood": "Mereannid",
+"dairy": "Piimatooted",
+"ingredient": "Koostisaine"
+}

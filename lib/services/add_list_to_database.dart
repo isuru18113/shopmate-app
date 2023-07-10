@@ -5,9 +5,6 @@ import 'package:http/http.dart' as http;
 import '../model/item_model.dart';
 import '../utils/handle_selected_item_helper.dart';
 
-// Access the selectedItems list
-List<Item> userSelectedItemList = HandleSelectedItem().selectedItems;
-
 //get data from userSelectedItem list and create a map
 Future<Map<String, dynamic>> createMap(List<Item> userSelectedItemList) async {
   Map<String, dynamic> jsonData = {

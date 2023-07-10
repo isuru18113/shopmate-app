@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../model/item_model.dart';
 import '../widgets/divider_widget.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class GroceriesCheckList extends StatefulWidget {
   final Map<String, dynamic> selectedItems;
   const GroceriesCheckList({Key? key, required this.selectedItems})
@@ -53,7 +53,7 @@ class _GroceriesCheckListState extends State<GroceriesCheckList> {
   AppBar checkListAppBar() {
     return AppBar(
       centerTitle: true,
-      title: const Text("Check List"),
+      title:  Text(AppLocalizations.of(context)!.check_list),
     );
   }
 
@@ -78,7 +78,7 @@ class _GroceriesCheckListState extends State<GroceriesCheckList> {
                       void Function(void Function()) setState) {
                     return CheckboxListTile(
                       contentPadding: const EdgeInsets.symmetric(vertical: 10),
-                      tileColor: Colors.green.shade50,
+                      tileColor: Theme.of(context).colorScheme.secondaryContainer,
                       onChanged: (bool? value) {
                         setState(() {
                           checks[index] = value!;
