@@ -5,7 +5,7 @@ ShopMate is a user-friendly app designed to simplify the grocery shopping experi
 The application starts with the "Home" screen, which serves as the central hub for users to manage their grocery shopping experience. From the home screen, users can access of the saved lists and button to create new list (🖊️).
 To begin creating a new list, users can navigate to the "Grocery List" screen by clicking (🖊️) button. Here, they can choose items from a comprehensive list of grocery products or add custom items as needed. As users select items, a temporary list of the chosen items dynamically appears at the bottom of the screen, allowing users to review their selections before proceeding.
 Once users have finalized their grocery list, they can proceed to the "Selected List" screen by clicking (>) button. In this view, all the chosen items are displayed, providing users with a clear overview of their selections. To remove an item from the selected list, users can swipe it to the left, offering a convenient deletion option.
-Upon satisfaction with the selected items, users can save the list by clicking the check icon button(✔️). The saved list is then stored in the application's database for future reference. Returning to the home screen, users can see all their created lists, making it easy to access and manage multiple lists. By clicking (⚙️) button, user able to go to the settings and change the app language.
+Upon satisfaction with the selected items, users can save the list by clicking the check icon button(✔️). The saved list is then stored in the application's database for future reference. Returning to the home screen, users can see all their created lists, making it easy to access and manage multiple lists. By clicking (⚙️) button, user able to go to the settings and change the app language. By clicking app theme button, user can switch from dark mode to light mode.
 By selecting one of the created lists from the home screen, users are directed to the corresponding "Check List" screen. This screen presents all the added items, providing users with a comprehensive checklist to refer to while shopping. Users can mark off items as they are placed in their cart, ensuring they don't overlook anything during the shopping trip.
 
 
@@ -53,4 +53,4 @@ flutter_launcher_icons: ^0.13.1: The flutter_launcher_icons package version 0.13
 
 flutter_localizations: package that provides localization and internationalization support for Flutter applications.
 
-mockito: ^5.4.2:  package used for create mock objects for testing
+mockito: ^5.4.2:  package used for create mock objects for testing.
