@@ -52,3 +52,5 @@ intl: ^0.18.1: The intl package version 0.18.1 was used to format date and time.
 flutter_launcher_icons: ^0.13.1: The flutter_launcher_icons package version 0.13.1 was utilized to generate launcher icons for ShopMate App.
 
 flutter_localizations: package that provides localization and internationalization support for Flutter applications.
+
+mockito: ^5.4.2:  package used for create mock objects for testing
