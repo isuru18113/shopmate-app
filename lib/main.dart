@@ -75,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedListRoute: (context) => const SelectedList(),
         settingsRoute: (context) => const Settings(),
       },
+
       onGenerateRoute: (settings) {
         if (settings.name == groceryCheckListRoute) {
           final value = settings.arguments as Map<String, dynamic>;

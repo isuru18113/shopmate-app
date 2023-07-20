@@ -16,6 +16,7 @@ class _SettingsState extends State<Settings> {
   bool? isLight;
   @override
   Widget build(BuildContext context) {
+
     //Get current brightness of the app
     isLight = Theme.of(context).brightness == Brightness.light;
 
